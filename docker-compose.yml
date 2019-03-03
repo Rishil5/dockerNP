@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  nginx:
+    #build: nginx_image/
+    build: ./
+    ports:
+      - "8080:80"
+    working_dir: /code/public
+    volumes:
+      - ./static_web/:/code/public
+#    links:
+#        - php
+#  php:
+#    image: php:7-fpm
+#    volumes:
+#      - ./static_web/:/www-data/
+    restart: always
+  
